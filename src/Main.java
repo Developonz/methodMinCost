@@ -6,9 +6,9 @@ public class Main {
     public static int countCol;
     public static int[] supplier;
     public static int[] consumer;
-    public static int[][] payment;
+    public static double[][] payment;
     public static int[][] plan;
-    public static int[] vector;
+    public static double[] vector;
 
     public static void main(String[] args) {
         inpData();
@@ -69,9 +69,9 @@ public class Main {
             consumer[i] = scanner.nextInt();
             sumCon += consumer[i];
         }
-        payment = new int[countRow][countCol];
+        payment = new double[countRow][countCol];
         System.out.println("Введите затраты на перевозку: ");
-        vector = new int[countRow * countCol];
+        vector = new double[countRow * countCol];
         int g = 0;
         for (int i = 0; i < countRow; ++i) {
             for (int j = 0; j < countCol; ++j) {
@@ -87,7 +87,7 @@ public class Main {
         for (int i = 0; i < countRow * countCol; ++i) {
             for (int j = 0; j < countRow * countCol - i - 1; ++j) {
                 if ((vector[j] > vector[j + 1] && vector[j + 1] != 0) || vector[j] == 0) {
-                    int tmp = vector[j + 1];
+                    double tmp = vector[j + 1];
                     vector[j + 1] = vector[j];
                     vector[j] = tmp;
                 }
